@@ -11,8 +11,6 @@
 		A864926325A41D5F00E8EB5E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864926225A41D5F00E8EB5E /* ContentView.swift */; };
 		A864926525A41D6200E8EB5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A864926425A41D6200E8EB5E /* Assets.xcassets */; };
 		A864926825A41D6200E8EB5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A864926725A41D6200E8EB5E /* Preview Assets.xcassets */; };
-		A864927825A43E9700E8EB5E /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864927725A43E9700E8EB5E /* test.swift */; };
-		A864927C25A43FFB00E8EB5E /* test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864927B25A43FFB00E8EB5E /* test2.swift */; };
 		A86492A025A51D9C00E8EB5E /* Feelings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864929F25A51D9C00E8EB5E /* Feelings.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,8 +21,6 @@
 		A864926425A41D6200E8EB5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A864926725A41D6200E8EB5E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A864926925A41D6200E8EB5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A864927725A43E9700E8EB5E /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
-		A864927B25A43FFB00E8EB5E /* test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test2.swift; sourceTree = "<group>"; };
 		A864929F25A51D9C00E8EB5E /* Feelings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feelings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,8 +57,6 @@
 				A864929E25A51D6D00E8EB5E /* Models */,
 				A864926025A41D5F00E8EB5E /* MoodieApp.swift */,
 				A864926225A41D5F00E8EB5E /* ContentView.swift */,
-				A864927B25A43FFB00E8EB5E /* test2.swift */,
-				A864927725A43E9700E8EB5E /* test.swift */,
 				A864926425A41D6200E8EB5E /* Assets.xcassets */,
 				A864926925A41D6200E8EB5E /* Info.plist */,
 				A864926625A41D6200E8EB5E /* Preview Content */,
@@ -155,9 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A864927C25A43FFB00E8EB5E /* test2.swift in Sources */,
 				A864926325A41D5F00E8EB5E /* ContentView.swift in Sources */,
-				A864927825A43E9700E8EB5E /* test.swift in Sources */,
 				A864926125A41D5F00E8EB5E /* MoodieApp.swift in Sources */,
 				A86492A025A51D9C00E8EB5E /* Feelings.swift in Sources */,
 			);
