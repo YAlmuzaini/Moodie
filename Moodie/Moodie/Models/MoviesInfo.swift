@@ -15,9 +15,10 @@ struct MoviesInfo: Identifiable{
 }
 
 let movies = [
-    MoviesInfo(Title: "Lion King", movieImage: "lionKing"),
-    MoviesInfo(Title: "Mulan", movieImage: "mulan"),
-    MoviesInfo(Title: "Toy Story 4", movieImage: "toyStory")
+    MoviesInfo(Title: "sonic", movieImage: "sonic"),
+    MoviesInfo(Title: "pink Panther", movieImage: "pinkPanther"),
+    MoviesInfo(Title: "Mr bean", movieImage: "Mrben"),
+    MoviesInfo(Title: "penguins of Madagascar", movieImage: "idk"),
 ]
 
 
@@ -28,10 +29,3 @@ struct ShowsInfo: Identifiable{
     
     let id = UUID()
 }
-
-let showTv = [
-    MoviesInfo(Title: "Lion King", movieImage: "lionKing"),
-    MoviesInfo(Title: "Mulan", movieImage: "mulan"),
-    MoviesInfo(Title: "Toy Story 4", movieImage: "toyStory")
-]
-

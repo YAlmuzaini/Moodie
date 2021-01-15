@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Home: View {    
+struct Home: View {
     var body: some View {
         ZStack{
             LinearGradient(gradient: Gradient(colors: [Color("\("Zomp")"), Color("\("QueenBlue")")]), startPoint: .top, endPoint: .bottom)
