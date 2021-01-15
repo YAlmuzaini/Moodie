@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct Home: View {
+struct Home: View {    
     var body: some View {
         ZStack{
-            Color(.blue)
-            ignoresSafeArea()
+            LinearGradient(gradient: Gradient(colors: [Color("\("Pistachio")"), Color("\("Zomp")")]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
             
             VStack{
                 Spacer()
