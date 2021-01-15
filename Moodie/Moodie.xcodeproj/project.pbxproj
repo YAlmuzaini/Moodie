@@ -12,6 +12,7 @@
 		A864926525A41D6200E8EB5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A864926425A41D6200E8EB5E /* Assets.xcassets */; };
 		A864926825A41D6200E8EB5E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A864926725A41D6200E8EB5E /* Preview Assets.xcassets */; };
 		A86492A025A51D9C00E8EB5E /* Feelings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A864929F25A51D9C00E8EB5E /* Feelings.swift */; };
+		A888679925B1FF6500C39E96 /* MoviesInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A888679825B1FF6500C39E96 /* MoviesInfo.swift */; };
 		A88D3AAF25B1CBF300A23CFD /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88D3AAE25B1CBF300A23CFD /* Home.swift */; };
 		A8B44CCF25A634A900F77617 /* RecommendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B44CCE25A634A900F77617 /* RecommendationView.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		A864926725A41D6200E8EB5E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A864926925A41D6200E8EB5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A864929F25A51D9C00E8EB5E /* Feelings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feelings.swift; sourceTree = "<group>"; };
+		A888679825B1FF6500C39E96 /* MoviesInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesInfo.swift; sourceTree = "<group>"; };
 		A88D3AAE25B1CBF300A23CFD /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A8B44CCE25A634A900F77617 /* RecommendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A864929F25A51D9C00E8EB5E /* Feelings.swift */,
+				A888679825B1FF6500C39E96 /* MoviesInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A888679925B1FF6500C39E96 /* MoviesInfo.swift in Sources */,
 				A864926325A41D5F00E8EB5E /* ContentView.swift in Sources */,
 				A864926125A41D5F00E8EB5E /* MoodieApp.swift in Sources */,
 				A88D3AAF25B1CBF300A23CFD /* Home.swift in Sources */,

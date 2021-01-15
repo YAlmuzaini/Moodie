@@ -68,10 +68,10 @@ struct ContentView: View {
                                         .cornerRadius(30)
                                         .padding()
                                 })
-                                .navigationBarTitle("", displayMode: .inline)
-                                .navigationBarHidden(true)
                         }
                     }
+                    .navigationBarTitle("", displayMode: .inline)
+                    .navigationBarHidden(true)
                 }
                 .foregroundColor(.white)
                 .padding()
