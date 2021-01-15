@@ -13,47 +13,69 @@ struct ContentView: View {
     @State var dotPlace: Double = 190
     @State var initPoint: Int = 5
     @State var emotions: String = "Ok"
+    @State var myImage: String = "ok"
+    @State var movedOrNot: Bool = false
     
     var body: some View {
-        ZStack{
-            LinearGradient(gradient: Gradient(colors: [Color("\(point)"), Color("\(point2)")]), startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            VStack{
-                Text("Hey Yousif,")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .italic()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
-                Text("How are you feeling today?")
-                    .font(.largeTitle)
-                    .italic()
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
+        NavigationView {
+            ZStack{
+                LinearGradient(gradient: Gradient(colors: [Color("\(point)"), Color("\(point2)")]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
                 
-                Spacer()
-                ZStack {
-                    arch(dotPlace: $dotPlace, initPoint: $initPoint)
-                        .padding()
-                    ImageMoodie(initPoint: $initPoint, colorFeeling: $point, colorFeeling2: $point2, dotPlace: $dotPlace, emotions: $emotions, Images: emoji[0])
-                }
-                Text("\(emotions)")
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    .bold()
-                    .italic()
-                Spacer()
-                HStack{
-                    Image("22")
-                        .resizable()
-                        .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
-                        .frame(width: 80, height: 80, alignment: .center)
-                    Text("Swipe up and down to choose your mood")
+                VStack{
+                    Text("Hey Yousif,")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .italic()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    Text("How are you feeling today?")
+                        .font(.largeTitle)
+                        .italic()
                         .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    
+                    Spacer()
+                    ZStack {
+                        arch(dotPlace: $dotPlace, initPoint: $initPoint, myImage: $myImage, emotions: $emotions, colorFeeling: $point, colorFeeling2: $point2, movedOrNot: $movedOrNot, Images: emoji[0])
+                            .padding()
+                        ImageMoodie(myImage: $myImage, initPoint: $initPoint, colorFeeling: $point, colorFeeling2: $point2, dotPlace: $dotPlace, emotions: $emotions, movedOrNot: $movedOrNot, Images: emoji[0])
+                    }
+                    Text("\(emotions)")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .bold()
+                        .italic()
+                    Spacer()
+                    HStack{
+                        if(movedOrNot == false){
+                            Image("22")
+                                .resizable()
+                                .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                                .frame(width: 80, height: 80, alignment: .center)
+                            Text("Swipe up and down to choose your mood")
+                                .bold()
+                        }
+                        else {
+                            NavigationLink(
+                                destination: RecommendationView(),
+                                label: {
+                                    Text("LETS GO!")
+                                        .font(.title3)
+                                        .bold()
+                                        .frame(width: 250, height: 75)
+                                        .foregroundColor(Color("\(point)"))
+                                        .background(Color(.white))
+                                        .cornerRadius(30)
+                                        .padding()
+                                })
+                                .navigationBarTitle("", displayMode: .inline)
+                                .navigationBarHidden(true)
+                        }
+                    }
                 }
+                .foregroundColor(.white)
+                .padding()
             }
-            .foregroundColor(.white)
-            .padding()
         }
     }
 }
@@ -61,6 +83,13 @@ struct ContentView: View {
 struct arch: View {
     @Binding var dotPlace: Double
     @Binding var initPoint: Int
+    @Binding var myImage: String
+    @Binding var emotions: String
+    @Binding var colorFeeling: String
+    @Binding var colorFeeling2: String
+    @Binding var movedOrNot: Bool
+    let Images: Emojis
+    
     var body: some View {
         ZStack {
             Circle()
@@ -75,9 +104,19 @@ struct arch: View {
                 if(dotPlace == 265){
                     dotPlace = 90
                     initPoint = 1
+                    myImage = Images.emojiImage[initPoint]
+                    emotions = Images.emojiTitle[initPoint]
+                    colorFeeling = Images.emojiBackgroundColor[initPoint]
+                    colorFeeling2 = Images.emojiBackgroundColor[initPoint+1]
+                    movedOrNot = true
                 } else {
                     dotPlace += 25
                     initPoint += 1
+                    myImage = Images.emojiImage[initPoint]
+                    emotions = Images.emojiTitle[initPoint]
+                    colorFeeling = Images.emojiBackgroundColor[initPoint]
+                    colorFeeling2 = Images.emojiBackgroundColor[initPoint+1]
+                    movedOrNot = true
                 }
             }, label: {
                 Circle()
@@ -95,12 +134,13 @@ struct arch: View {
 
 struct ImageMoodie: View {
     @State private var offset = CGSize.zero
-    @State var myImage: String = "ok"
+    @Binding var myImage: String
     @Binding var initPoint: Int
     @Binding var colorFeeling: String
     @Binding var colorFeeling2: String
     @Binding var dotPlace: Double
     @Binding var emotions: String
+    @Binding var movedOrNot: Bool
     let Images: Emojis
     
     var body: some View {
@@ -121,7 +161,6 @@ struct ImageMoodie: View {
                         }
                         .onEnded { _ in
                             if self.offset.height > 100 {
-                                
                                 if initPoint == 8 {
                                     initPoint = 1
                                     myImage = Images.emojiImage[initPoint]
@@ -129,6 +168,7 @@ struct ImageMoodie: View {
                                     colorFeeling2 = Images.emojiBackgroundColor[initPoint+1]
                                     dotPlace = 90
                                     emotions = Images.emojiTitle[initPoint]
+                                    movedOrNot = true
                                 } else {
                                     initPoint += 1
                                     myImage = Images.emojiImage[initPoint]
@@ -136,6 +176,7 @@ struct ImageMoodie: View {
                                     colorFeeling2 = Images.emojiBackgroundColor[initPoint+1]
                                     dotPlace += 25
                                     emotions = Images.emojiTitle[initPoint]
+                                    movedOrNot = true
                                 }
                                 self.offset = .zero
                                 
@@ -147,6 +188,7 @@ struct ImageMoodie: View {
                                     colorFeeling2 = Images.emojiBackgroundColor[initPoint+1]
                                     dotPlace = 265
                                     emotions = Images.emojiTitle[initPoint]
+                                    movedOrNot = true
                                 } else {
                                     initPoint -= 1
                                     myImage = Images.emojiImage[initPoint]
@@ -154,6 +196,7 @@ struct ImageMoodie: View {
                                     colorFeeling2 = Images.emojiBackgroundColor[initPoint+1]
                                     dotPlace -= 25
                                     emotions = Images.emojiTitle[initPoint]
+                                    movedOrNot = true
                                 }
                                 self.offset = .zero
                             }
@@ -170,3 +213,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
